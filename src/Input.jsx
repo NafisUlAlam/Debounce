@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 
 const Input = () => {
   const [searchText, setSearchText] = useState("");
-  const handleSearch = (str) => {
+  const handleSearch = useCallback((str) => {
     console.log(str);
-  };
+  }, []);
 
   const debouncedSearch = useDebouncedCallback(handleSearch, 500);
-  console.log("debounced search", debouncedSearch);
-  console.log("input render");
+  //console.log("debounced search", debouncedSearch);
+  //console.log("input render");
+
   return (
     <div>
       <input
